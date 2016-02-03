@@ -1,0 +1,10 @@
+body {
+	font-family: "Raleway";
+}
+
+button {
+	background: #87B986;
+	border: 2px solid black;
+	padding: 5px;
+	display: none;
+}
