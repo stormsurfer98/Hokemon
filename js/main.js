@@ -219,18 +219,19 @@ function attack(move) {
 	computerY = canvas.height/3-20;
 
 	context.clearRect(playerX, playerY, player.width, player.height);
-	playerX += 100;
-	playerY -= 100;
+	playerX += 150;
+	playerY -= 50;
 	context.drawImage(player, playerX, playerY);
 	setTimeout(alert("You jumped into the air!"), 1000);
 	context.clearRect(playerX, playerY, player.width, player.height);
-	playerX += 150;
-	playerY += 100;
+	playerX += 100;
+	playerY += 50;
 	context.drawImage(player, playerX, playerY);
 	setTimeout(alert("And strike with a " + moves[move][0].toLowerCase() + "!"), 1000);
 
 	if(Math.random() < moves[move][2]/100) {
 		computerHP -= moves[move][1];
+		if(computerHP < 0) computerHP = 0;
 		setTimeout(alert("Your attack hits!"), 1000);
 	} else {
 		setTimeout(alert("You missed!"), 1000);
@@ -256,6 +257,7 @@ function attack(move) {
 	if(Math.random() < damageLevel/100+0.1) {
 		setTimeout(alert("The enemy's attack hits!"), 1000);
 		playerHP -= parseInt(Math.random()*damageLevel);
+		if(playerHP < 0) playerHP = 0;
 	} else {
 		setTimeout(alert("The enemy's attack missed!"), 1000);
 	}
